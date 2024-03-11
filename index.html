@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora-js</title>
+
+<style>
+    body {
+        font-family: ARIAL;
+        text-align: center;
+    }
+    .calculadora{
+        width: 200px;
+        margin: 0, auto;
+        border: 1px solid #1e1c1c;
+        padding: 10px;
+        background: rgb(238, 80, 255);
+        border-radius: 24px;
+    }
+    .fila-botones{
+        display: flex;
+    }
+    
+    .boton:hover{
+    background-color: #edfa3f;
+    }
+    
+    input[type="button"]{
+        width: 100px;
+        height: 40px;
+        font-size: 25px;
+        margin-bottom: 10px;
+        background-color: rgb(145, 249, 122);
+        border-radius: 10px;
+    }
+    input[type="text"]{
+        width: 100%;
+        height: 40px;
+        font-size: 18px;
+        text-align: right;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        background-color: rgb(206, 240, 252);
+    }
+</style>
+
+</head>
+<body>
+    <div class="calculadora">
+        <h5>Calculadora en HTML y JavaScript</h5>
+        <input type="text" id="pantalla" readonly>
+        <div class="btns">
+            <div class="fila-botones">
+                <input type="button" value="1" onclick="Agregar('1')" class="boton">
+                <input type="button" value="2" onclick="Agregar('2')" class="boton">
+                <input type="button" value="3" onclick="Agregar('3')" class="boton">
+                <input type="button" value="+" onclick="Agregar('+')" class="boton">
+            </div>
+            <div class="fila-botones">
+                <input type="button" value="4" onclick="Agregar('4')" class="boton">
+                <input type="button" value="5" onclick="Agregar('5')" class="boton">
+                <input type="button" value="6" onclick="Agregar('6')" class="boton">
+                <input type="button" value="-" onclick="Agregar('-')" class="boton">
+            </div>
+            <div class="fila-botones">
+                <input type="button" value="7" onclick="Agregar('7')"class="boton">
+                <input type="button" value="8" onclick="Agregar('8')"class="boton">
+                <input type="button" value="9" onclick="Agregar('9')"class="boton">
+                <input type="button" value="*" onclick="Agregar('*')"class="boton">
+            </div>
+            <div class="fila-botones">
+                <input type="button" value="0" onclick="Agregar('0')"class="boton">
+                <input type="button" value="." onclick="Agregar('.')"class="boton">
+                <input type="button" value="C" onclick="Limpiar()"class="boton">
+                <input type="button" value="/" onclick="Agregar('/')"class="boton">
+            </div>
+            <div class="fila-botones">
+                <input type="button" value="=" onclick="Calcular()"class="boton">
+            </div>
+        </div>
+    </div>
+    <script>
+        function Agregar(value){
+            document.getElementById("pantalla").value+=value;
+        }
+        function Calcular(){
+            try{
+                const restul = eval(document.getElementById("pantalla").value);
+                document.getElementById("pantalla").value = restul;
+            }catch(error){
+                document.getElementById("pantalla").value = "Error";
+            }
+        }
+        function Limpiar(){
+            document.getElementById("pantalla").value='';
+        }
+    </script>
+</body>
+</html>
